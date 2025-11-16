@@ -1,0 +1,10 @@
+{"name": "Camera Nikon updated",
+  "price": 1300,
+  "stock": 200,
+  "sku": "404040",
+  "category_id": 1,
+  "manufacturer": "Manufacturer Name updated",
+  "image_url": "images/image123.jpg",
+  "discount": 0.1,
+  "description": "Product description updated"
+}
