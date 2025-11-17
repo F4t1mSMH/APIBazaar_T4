@@ -83,7 +83,13 @@
 
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.11.2</version>
+            </plugin>
         </plugins>
+
     </build>
 
 </project>
