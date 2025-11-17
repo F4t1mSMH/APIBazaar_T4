@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/PCD/IdeaProjects/APIBazaar_T4/src/test/java/tests">
+        <classes>
+            <class name="tests.CartTests">
+                <methods>
+                    <include name="addProductToCartTest"/>
+                    <include name="removeProductFromCartTest"/>
+                    <include name="viewShoppingCartTest"/>
+                    <include name="clearShoppingCartTest"/>
+                </methods>
+            </class>
+            <class name="tests.CurrentUserProfile">
+                <methods>
+                    <include name="currentUserProfileTest"/>
+                </methods>
+            </class>
+            <class name="tests.FavoritesTest">
+                <methods>
+                    <include name="addProductToFavorites"/>
+                    <include name="addMultipleFavoritesFromJson"/>
+                    <include name="ViewProductFavorites"/>
+                    <include name="removeProductFromFavorites"/>
+                </methods>
+            </class>
+            <class name="tests.Login">
+                <methods>
+                    <include name="loginTest"/>
+                    <include name="negativeLoginTest"/>
+                </methods>
+            </class>
+            <class name="tests.ManagerNegativeTest">
+                <methods>
+                    <include name="addNewProductMissingRequiredFieldTest"/>
+                    <include name="updateProductNotFoundTest"/>
+                    <include name="updateProductValidationFailsTest"/>
+                    <include name="deleteProductNotFoundTest"/>
+                    <include name="addNewProductValidationFailsTest"/>
+                    <include name="deleteProductServerErrorTest"/>
+                </methods>
+            </class>
+            <class name="tests.ManagerTest">
+                <methods>
+                    <include name="addNewProductTest"/>
+                    <include name="updateProductTest"/>
+                    <include name="deleteProductTest"/>
+                </methods>
+            </class>
+            <class name="tests.Register">
+                <methods>
+                    <include name="registerTest"/>
+                    <include name="dublicateEmailTest"/>
+                    <include name="missingRequiredFieldsTest"/>
+                    <include name="invalidEmailTest"/>
+                </methods>
+            </class>
+            <class name="tests.StoreApiTests">
+                <methods>
+                    <include name="TC_US017_001_getAllStores"/>
+                    <include name="TC_US019_001_createStoreValid"/>
+                    <include name="TC_US018_001_getStoreById"/>
+                    <include name="TC_US018_002_invalidStoreId"/>
+                    <include name="TC_US019_002_createStoreInvalidData"/>
+                    <include name="TC_US019_003_createStoreServerError"/>
+                    <include name="TC_US020_001_updateStoreSuccessfully"/>
+                    <include name="TC_US020_002_updateNonExistingStore"/>
+                    <include name="TC_US020_003_updateStoreInvalidData"/>
+                    <include name="TC_US020_004_updateStoreServerFailure"/>
+                    <include name="TC_US021_001_deleteStoreSuccessfully"/>
+                    <include name="TC_US021_002_deleteStoreServerError"/>
+                </methods>
+            </class>
+            <class name="tests.US022_GetAllUsersTest">
+                <methods>
+                    <include name="getAllUsersTest"/>
+                </methods>
+            </class>
+            <class name="tests.US023_GetUserDetailsTest">
+                <methods>
+                    <include name="getUserDetailsTest"/>
+                </methods>
+            </class>
+            <class name="tests.US024_CreateUserTest">
+                <methods>
+                    <include name="createUserTest"/>
+                </methods>
+            </class>
+            <class name="tests.US025_UpdateUserTest">
+                <methods>
+                    <include name="updateUserTest"/>
+                </methods>
+            </class>
+            <class name="tests.US026_DeleteUserTest">
+                <methods>
+                    <include name="deleteUserSuccessfully"/>
+                </methods>
+            </class>
+            <class name="tests.logOut">
+                <methods>
+                    <include name="logoutTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
