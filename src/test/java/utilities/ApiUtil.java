@@ -60,6 +60,7 @@ public class ApiUtil {
     public static Response post(String endpoint, String body) {
         return getAuthRequestSpec().body(body).post(endpoint);
     }
+    public static Response post(String endpoint, Object body) { return getAuthRequestSpec().body(body).post(endpoint);}
 
     // Generic PUT request
     public static Response put(String endpoint, String body) {
