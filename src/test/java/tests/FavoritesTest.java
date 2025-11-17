@@ -15,8 +15,7 @@ import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 
-import static org.hamcrest.Matchers.greaterThanOrEqualTo;
-import static org.hamcrest.Matchers.notNullValue;
+import static org.hamcrest.Matchers.*;
 import static utilities.ApiUtilities.spec;
 import static utilities.ObjectMapperUtils.getJsonNode;
 
@@ -66,6 +65,41 @@ public class FavoritesTest extends BazaarBaseUrl {
         }
     }
 
+    //multifavorites
+    @Test
+    public void addMultipleFavoritesFromJson() {
+
+
+        JsonNode AddDFavoriateEproduct = getJsonNode("multiFavorites");
+
+        // 2️⃣ Loop through each product and send POST request
+        for (JsonNode productNode : AddDFavoriateEproduct) {
+            int productId = productNode.get("product_id").asInt();
+
+            Map<String, Object> requestBody = new HashMap<>();
+            requestBody.put("product_id", productId);
+
+            Response response = given(spec())
+                    .contentType(ContentType.JSON)
+                    .body(requestBody)
+                    .post("/favorites/create");
+
+            response.prettyPrint();
+
+            int statusCode = response.getStatusCode();
+            String successMessage = response.jsonPath().getString("success");
+            String errorMessage = response.jsonPath().getString("error");
+
+            if (statusCode == 200) {
+                System.out.println(" Product ID " + productId + " added successfully: " + successMessage);
+            } else if (statusCode == 400) {
+                System.out.println("Product ID " + productId + " is already in favorites: " + errorMessage);
+            } else {
+                System.out.println(" Unexpected status code " + statusCode + " for product ID " + productId);
+            }
+        }
+    }
+
     ///-------------------------------------------VIEW-----------------------------------------------
 
     @Test(priority = 2)
@@ -78,7 +112,7 @@ public class FavoritesTest extends BazaarBaseUrl {
                 .statusCode(200)
                 .body("size()", greaterThanOrEqualTo(0))
                 .body("[0].product.name", notNullValue())
-                .body("[0].product.stock", greaterThanOrEqualTo(0));
+                .body("[0].product.stock", greaterThan(0));
 
 
 }
