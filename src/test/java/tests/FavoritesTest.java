@@ -30,8 +30,12 @@ public class FavoritesTest extends BazaarBaseUrl {
     @Test (priority = 1)
     public void addProductToFavorites() {
 
+
+        JsonNode AddDFavoriateEproduct = getJsonNode("favoriteProduct");
         Map<String, Object> requestBody = new HashMap<>();
-        requestBody.put("product_id", 211);
+        int productId = AddDFavoriateEproduct.get("product_id").asInt();
+        requestBody.put("product_id", productId);
+
 
         Response response = given(spec())
                 .contentType(ContentType.JSON)
@@ -48,7 +52,7 @@ public class FavoritesTest extends BazaarBaseUrl {
 
 
             Assert.assertNotNull(favoriteResponse.getId(), "Favorite ID should not be null");
-            Assert.assertEquals(favoriteResponse.getProductId(), 398, "Product ID should match the added product");
+            Assert.assertEquals(favoriteResponse.getProductId(), productId, "Product ID should match the added product");
             Assert.assertNull(favoriteResponse.getError(), "Error field should be null on success");
 
             System.out.println(" Product added to favorites successfully. Favorite ID: " + favoriteResponse.getId());
@@ -58,7 +62,7 @@ public class FavoritesTest extends BazaarBaseUrl {
             String errorMessage = response.jsonPath().getString("error");
             Assert.assertTrue(errorMessage.contains("already in favorites"), "Error should indicate product already exists");
 
-            System.out.println(" Product already in favorites: " + errorMessage);
+            System.out.println("Product ID " + productId + " is already in favorites: " + errorMessage);
         } else {
 
             Assert.fail("Unexpected status code: " + statusCode);
@@ -72,7 +76,7 @@ public class FavoritesTest extends BazaarBaseUrl {
 
         JsonNode AddDFavoriateEproduct = getJsonNode("multiFavorites");
 
-        // 2️⃣ Loop through each product and send POST request
+
         for (JsonNode productNode : AddDFavoriateEproduct) {
             int productId = productNode.get("product_id").asInt();
 
