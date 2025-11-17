@@ -1,13 +1,10 @@
 package base_urls;
-
 import org.testng.annotations.BeforeClass;
 import utilities.ApiUtil;
 import utilities.ApiUtilities;
 import utilities.ConfigReader;
 
 public class BazaarBaseUrl {
-
-
     public void loginAsCustomer() {
         ApiUtil.loginAndGetToken(
                 ConfigReader.getCustomerEmail(),

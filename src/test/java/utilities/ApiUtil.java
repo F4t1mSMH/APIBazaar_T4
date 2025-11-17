@@ -7,7 +7,7 @@ import io.restassured.specification.RequestSpecification;
 import static io.restassured.RestAssured.given;
 
 public class ApiUtil {
-
+    
     private static String token;
 
     static {
@@ -36,8 +36,8 @@ public class ApiUtil {
     // Login via API and get token
     public static String loginAndGetToken(String email, String password) {
         String requestBody = String.format(
-                "{\"email\":\"%s\", \"password\":\"%s\"}",
-                email, password
+            "{\"email\":\"%s\", \"password\":\"%s\"}", 
+            email, password
         );
 
         Response response = getRequestSpec()
@@ -75,8 +75,8 @@ public class ApiUtil {
     public static void verifyStatusCode(Response response, int expectedStatusCode) {
         if (response.statusCode() != expectedStatusCode) {
             throw new AssertionError(
-                    "Expected status code: " + expectedStatusCode +
-                            " but got: " + response.statusCode()
+                "Expected status code: " + expectedStatusCode + 
+                " but got: " + response.statusCode()
             );
         }
     }
