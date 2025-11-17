@@ -7,8 +7,8 @@ import io.restassured.specification.RequestSpecification;
 import static io.restassured.RestAssured.given;
 
 public class ApiUtil {
-    
-    private static String token;
+
+    public static String token;
 
     static {
         RestAssured.baseURI = ConfigReader.getApiBaseUrl();
@@ -36,8 +36,8 @@ public class ApiUtil {
     // Login via API and get token
     public static String loginAndGetToken(String email, String password) {
         String requestBody = String.format(
-            "{\"email\":\"%s\", \"password\":\"%s\"}", 
-            email, password
+                "{\"email\":\"%s\", \"password\":\"%s\"}",
+                email, password
         );
 
         Response response = getRequestSpec()
@@ -75,8 +75,8 @@ public class ApiUtil {
     public static void verifyStatusCode(Response response, int expectedStatusCode) {
         if (response.statusCode() != expectedStatusCode) {
             throw new AssertionError(
-                "Expected status code: " + expectedStatusCode + 
-                " but got: " + response.statusCode()
+                    "Expected status code: " + expectedStatusCode +
+                            " but got: " + response.statusCode()
             );
         }
     }
@@ -84,5 +84,19 @@ public class ApiUtil {
     // Get response value by JSON path
     public static String getResponseValue(Response response, String jsonPath) {
         return response.jsonPath().getString(jsonPath);
+    }
+//    public static String token; // توكن ثابت لكل الاختبارات
+
+    // تسجيل الدخول مرة واحدة فقط
+    public static void adminLogin() {
+        if (token == null) {
+            Response loginResponse = given()
+                    .contentType(ContentType.JSON)
+                    .body("{\"email\":\"" + ConfigReader.getAdminEmail() + "\","
+                            + "\"password\":\"" + ConfigReader.getDefaultPassword() + "\"}")
+                    .post(ConfigReader.getApiBaseUrl() + "/login");
+
+            token = loginResponse.jsonPath().getString("authorisation.token");
+        }
     }
 }
