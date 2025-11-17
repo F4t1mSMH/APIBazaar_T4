@@ -57,5 +57,14 @@ public class ObjectMapperUtils {
         objectNode.remove(fieldName);
     }
 
+    public static String convertObjectToJson(Object object) {
+        try {
+            return new ObjectMapper().writeValueAsString(object);
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to convert object to JSON: " + e.getMessage(), e);
+        }
+    }
+
+
 
 }

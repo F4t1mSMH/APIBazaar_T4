@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true"
+          name="StoreApiTests">
+        <classes>
+            <class name="tests.StoreApiTests">
+                <methods>
+                    <include name="TC_US017_001_getAllStores"/>
+                    <include name="TC_US019_001_createStoreValid"/>
+                    <include name="TC_US018_001_getStoreById"/>
+                    <include name="TC_US018_002_invalidStoreId"/>
+                    <include name="TC_US019_002_createStoreInvalidData"/>
+                    <include name="TC_US019_003_createStoreServerError"/>
+                    <include name="TC_US020_001_updateStoreSuccessfully"/>
+                    <include name="TC_US020_002_updateNonExistingStore"/>
+                    <include name="TC_US020_003_updateStoreInvalidData"/>
+                    <include name="TC_US020_004_updateStoreServerFailure"/>
+                    <include name="TC_US021_001_deleteStoreSuccessfully"/>
+                    <include name="TC_US021_002_deleteStoreServerError"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
