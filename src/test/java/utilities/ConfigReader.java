@@ -74,4 +74,8 @@ public class ConfigReader {
         return headless != null ? Boolean.parseBoolean(headless) :
                 Boolean.parseBoolean(properties.getProperty("headless"));
     }
-}
+    public static int getExistingUserId() {
+        return Integer.parseInt(properties.getProperty("existing.user.id"));
+    }
+    }
+

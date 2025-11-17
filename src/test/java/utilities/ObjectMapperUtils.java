@@ -4,7 +4,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.github.javafaker.Faker;
 
 import java.io.File;
 import java.io.IOException;
@@ -57,14 +56,11 @@ public class ObjectMapperUtils {
         objectNode.remove(fieldName);
     }
 
-    public static String convertObjectToJson(Object object) {
+    public static String convertToJson(Object object) {
         try {
             return new ObjectMapper().writeValueAsString(object);
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to convert object to JSON: " + e.getMessage(), e);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
         }
     }
-
-
-
 }
