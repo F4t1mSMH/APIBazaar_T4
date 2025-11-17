@@ -9,7 +9,7 @@ import static org.hamcrest.Matchers.equalTo;
 import static utilities.ObjectMapperUtils.getJsonNode;
 import utilities.ApiUtil;
 
-public class Manager extends BazaarBaseUrl {
+public class ManagerTest extends BazaarBaseUrl {
     private static int productId;
 
     @BeforeClass
