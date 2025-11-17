@@ -16,9 +16,9 @@ public class US025_UpdateUserTest {
     public void updateUserTest() {
         ApiUtil.adminLogin();
 
-        int userId = 4529;
+        int userId = 4514;
 
-        UpdateUserPojo updatePayload = new UpdateUserPojo("Sara ebra", "Sara.ebra@example.com", "customer", false);
+        UpdateUserPojo updatePayload = new UpdateUserPojo("Sara abra", "Sara.ebr4a@example.com", "customer", false);
 
         Response response = given()
                 .header("Authorization", "Bearer " + ApiUtil.token)
