@@ -57,5 +57,11 @@ public class ObjectMapperUtils {
         objectNode.remove(fieldName);
     }
 
-
+    public static String convertToJson(Object object) {
+        try {
+            return new ObjectMapper().writeValueAsString(object);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
