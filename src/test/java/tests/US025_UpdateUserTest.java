@@ -16,7 +16,7 @@ public class US025_UpdateUserTest {
     public void updateUserTest() {
         ApiUtil.adminLogin();
 
-        int userId = 4514;
+        int userId = 4529;
 
         UpdateUserPojo updatePayload = new UpdateUserPojo("Sara ebra", "Sara.ebra@example.com", "customer", false);
 

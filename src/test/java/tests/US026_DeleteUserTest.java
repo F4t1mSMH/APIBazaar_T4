@@ -14,7 +14,7 @@ public class US026_DeleteUserTest {
     public void deleteUserSuccessfully() {
         ApiUtil.adminLogin();
 
-        int userId = 356;
+        int userId = 4529;
         Response response = given()
                 .header("Authorization", "Bearer " + ApiUtil.token)
                 .delete(ConfigReader.getApiBaseUrl() + "/users/" + userId);
