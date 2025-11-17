@@ -1,20 +1,27 @@
 package tests;
 
+import base_urls.BazaarBaseUrl;
 import io.restassured.response.Response;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import utilities.ApiUtil;
 import utilities.ConfigReader;
 
 import static io.restassured.RestAssured.given;
 
-public class US023_GetUserDetailsTest {
+public class US023_GetUserDetailsTest extends BazaarBaseUrl {
+
+    @BeforeClass
+    public void setUp() {
+        loginAsCustomer();
+    }
 
     @Test
     public void getUserDetailsTest() {
-        ApiUtil.adminLogin();
 
-        int userId = 4316;
+
+        int userId = 356;
 
         Response response = given()
                 .header("Authorization", "Bearer " + ApiUtil.token)
