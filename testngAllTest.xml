@@ -62,6 +62,7 @@
                 </methods>
             </class>
 
+
             <class name="tests.StoreApiTests">
                 <methods>
                     <include name="TC_US017_001_getAllStores"/>
