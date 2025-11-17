@@ -21,7 +21,7 @@ public class US023_GetUserDetailsTest extends BazaarBaseUrl {
     public void getUserDetailsTest() {
 
 
-        int userId = 356;
+        int userId = 4517;
 
         Response response = given()
                 .header("Authorization", "Bearer " + ApiUtil.token)
