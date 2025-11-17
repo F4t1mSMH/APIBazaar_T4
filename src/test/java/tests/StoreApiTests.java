@@ -212,7 +212,8 @@ public class StoreApiTests {
         );
 
 
-        String updateJson = ObjectMapperUtils.convertObjectToJson(updateBody);
+//        String updateJson = ObjectMapperUtils.convertObjectToJson(updateBody);
+        String updateJson = ObjectMapperUtils.convertToJson(updateBody);
 
 
         Response updateResponse = ApiUtil.put("/stores/" + storeId, updateJson);
@@ -244,7 +245,7 @@ public class StoreApiTests {
         );
 
 
-        String updateJson = ObjectMapperUtils.convertObjectToJson(updateBody);
+        String updateJson = ObjectMapperUtils.convertToJson(updateBody);
 
 
         int invalidId = 99999;
@@ -293,7 +294,7 @@ public class StoreApiTests {
         );
 
 
-        String updateJson = ObjectMapperUtils.convertObjectToJson(invalidUpdateBody);
+        String updateJson = ObjectMapperUtils.convertToJson(invalidUpdateBody);
 
 
         Response response = ApiUtil.put("/stores/" + storeId, updateJson);
@@ -325,7 +326,7 @@ public class StoreApiTests {
                 99999999
         );
 
-        String failingJson = ObjectMapperUtils.convertObjectToJson(failingUpdateBody);
+        String failingJson = ObjectMapperUtils.convertToJson(failingUpdateBody);
 
 
         Response response = ApiUtil.put("/stores/" + storeId, failingJson);
