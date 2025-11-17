@@ -80,4 +80,33 @@ public class ManagerNegativeTest extends BazaarBaseUrl {
                 .statusCode(500)
                 .body("error", equalTo("Product deletion failed. Please try again."));
     }
+
+
+    @Test(priority = 5)
+    void addNewProductValidationFailsTest() {
+        String validationErrorBody = getJsonNode("payload_that_causes_500").toString();
+        String endpoint = "/products/create";
+
+        Response response = ApiUtil.post(endpoint, validationErrorBody);
+
+        response.prettyPrint();
+
+        response.then()
+                .statusCode(422)
+                .body("errors.price[0]", equalTo("The price field is required."));
+    }
+
+    @Test(priority = 6)
+    void deleteProductServerErrorTest() {
+        int existingIdCausingError = 100;
+        String endpoint = "/products/" + existingIdCausingError;
+
+        Response response = ApiUtil.delete(endpoint);
+
+        response.prettyPrint();
+
+        response.then()
+                .statusCode(500)
+                .body("error", notNullValue());
+    }
 }
