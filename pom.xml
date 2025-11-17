@@ -78,7 +78,7 @@
                 <configuration>
 
                     <suiteXmlFiles>
-                        <suiteXmlFile>regression_suite.xml</suiteXmlFile>
+                        <suiteXmlFile>testngAllTest.xml</suiteXmlFile>
                     </suiteXmlFiles>
 
                 </configuration>
