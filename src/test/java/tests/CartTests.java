@@ -21,7 +21,7 @@ public class CartTests extends BazaarBaseUrl {
     @Test(description = "Add product to cart")
     public void addProductToCartTest() {
 
-        CartRequest requestBody = new CartRequest(398, 1);
+        CartRequest requestBody = new CartRequest(2976, 1);
 
         Response response = given()
                 .spec(ApiUtil.getAuthRequestSpec())
@@ -34,7 +34,7 @@ public class CartTests extends BazaarBaseUrl {
     @Test(description = "Remove product from cart")
     public void removeProductFromCartTest() {
 
-        int productId = 398;
+        int productId = 2976;
 
         Response response = given()
                 .spec(ApiUtil.getAuthRequestSpec())

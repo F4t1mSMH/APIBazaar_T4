@@ -27,7 +27,7 @@ public class FavoritesTest extends BazaarBaseUrl {
     }
 
 ///-------------------------------------------ADD----------------------------
-    @Test (priority = 1)
+    @Test
     public void addProductToFavorites() {
 
 
@@ -70,7 +70,7 @@ public class FavoritesTest extends BazaarBaseUrl {
     }
 
     //multifavorites
-    @Test
+    @Test(priority = 1)
     public void addMultipleFavoritesFromJson() {
 
 

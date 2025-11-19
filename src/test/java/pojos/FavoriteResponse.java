@@ -16,7 +16,7 @@ public class FavoriteResponse {
 
     private String error;
 
-    private String success; // <-- Add this
+    private String success;
 
     // Getters and setters
     public Integer getId() {
